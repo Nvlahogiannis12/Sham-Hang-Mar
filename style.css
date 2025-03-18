@@ -1,0 +1,22 @@
+body{
+    height: 100%;
+  width: 100%;
+  --green: rgb(41, 41, 41);
+  --white: rgb(36, 36, 36);
+  background: linear-gradient(
+    33.6deg,
+    var(--green) 0% 9%,
+    var(--white) 11% 19%,
+    var(--green) 21% 29%,
+    var(--white) 31% 39%,
+    var(--green) 41% 49%,
+    var(--white) 51% 59%,
+    var(--green) 61% 69%,
+    var(--white) 71% 79%,
+    var(--green) 81% 89%,
+    var(--white) 91% 100%
+  );
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  color:White;
+}
