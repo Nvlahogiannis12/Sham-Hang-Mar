@@ -20,3 +20,23 @@ body{
   background-size: 200px 200px;
   color:White;
 }
+.easy{
+  background-color: white;
+  color:black;
+  border-radius: 45px;
+  border: 7px solid rgb(0, 80, 0);
+}
+
+.medium{
+  background-color: white;
+  color:black;
+  border-radius: 45px;
+  border: 7px solid rgb(120, 100, 0);
+}
+
+.hard{
+  background-color: white;
+  color:black;
+  border-radius: 45px;
+  border: 7px solid rgb(115, 0, 0);
+}
