@@ -64,3 +64,31 @@ function updateDifficultyDisplay(level){
     //Apply CSS styling
     difficultyBox.classList.add(level)
 }
+
+function guessLetter(){
+    let inputField = document.getElementById('guessBtn')
+    let guessedLetter = inputField.value.toLowerCase()
+
+    //Check if Valid input between A-Z
+    if(!guessedLetter.match(/^[a-z]$/)){
+        alert('You have FAILED to put a letter between A-Z')
+        inputField.value = ''
+        return
+    }
+    if(guessedLetters.includes(guessedLetter)){
+        alert('You guessed that already')
+        inputField.value = ''
+        return
+    } else {
+        guessedLetters.push(guessLetter)
+    }
+    
+    if(selectedWord.includes(guessedLetters)){
+        correctGuess(guessedLetter)
+    } else {
+        wrongGuess(guessedLetter)
+    }
+
+    inputField.value = ''
+    inputField.focus()
+}
