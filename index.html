@@ -45,7 +45,13 @@
             <!--Wrong Guesses-->
             <p id="wrongLetters" class="fw-bold">Wrong Guesses:</p>
 
-            <img id="shamrock" src="img/hearts6.png" alt="Hearts" class="hearts-img">
+            <!--Health-->
+            <div class="playerHealthBackdrop mx-2" id="playerHealthBackdrop">
+                <p class="healthText">PLAYER</p>
+                <div class="playerHealthLost">
+                    <div class="playerHealth" id="playerHealth"></div>
+                </div>
+            </div>
 
             <div class="mt-4">
                 <button id="restartBtn" class="btn btn-danger" onclick="restartGame()">Restart Game</button>

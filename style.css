@@ -40,3 +40,40 @@ body{
   border-radius: 45px;
   border: 7px solid rgb(115, 0, 0);
 }
+
+
+.playerHealthBackdrop{
+  height: 50px;
+  width: 250px;
+  background-color: silver;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+ position: relative;
+ z-index: -2;
+ border-radius:5px;
+}
+
+.playerHealth {
+ height: 20px;
+ width: 100%;
+ background-color:maroon;
+ border-radius:20px;
+}
+
+.healthText {
+ all: unset;
+}
+
+.playerHealthLost {
+ height:20px;
+ width: 200px;
+ background-color: black;
+ z-index: -1;
+ border-radius:20px;
+}
+
+* {
+ position:relative;
+}

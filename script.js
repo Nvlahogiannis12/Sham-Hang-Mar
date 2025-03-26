@@ -19,7 +19,7 @@ const wordList = [
 
 let selectedWord = ''
 let displayedWord = ''
-let wrongGuess = 0
+let wrongGuesses = 0
 let guessedLetters = []
 const maxMistakes = 6
 
@@ -83,7 +83,7 @@ function guessLetter(){
         guessedLetters.push(guessLetter)
     }
     
-    if(selectedWord.includes(guessedLetters)){
+    if(selectedWord.includes(guessedLetter)){
         correctGuess(guessedLetter)
     } else {
         wrongGuess(guessedLetter)
@@ -91,4 +91,44 @@ function guessLetter(){
 
     inputField.value = ''
     inputField.focus()
+}
+
+function wrongGuess(guessedLetter){
+    wrongGuesses++
+    document.getElementById('wrongLetters').textContent += ` ${guessedLetter}`
+    //health decrease
+
+
+    if (wrongGuesses === maxMistakes){
+        endGame(false)}
+}
+
+function correctGuess(guessedLetter){
+    let newDisplayedWord = ''
+    for (let i = 0; i < selectedWord.length; i++){
+        if (selectedWord[i] === guessedLetter){
+            newDisplayedWord += guessedLetter
+        } else{
+            newDisplayedWord += displayedWord[i]
+        }
+    }
+
+    displayedWord = newDisplayedWord
+    document.getElementById('wordDisplay').textContent = displayedWord.split('').join(' ')
+
+
+    if(!displayedWord.includes('_')){
+        endGame(true)
+    }
+}
+
+function endGame(won){
+    if(won === true){
+        setTimeout(() => alert('You Win'), 100)
+    } else{}
+
+}
+
+function restartGame(){
+    
 }
