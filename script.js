@@ -1,27 +1,28 @@
 const wordList = [
-    'Articuno',
-    'Zapdos',
-    'Moltres',
-    'Mewtwo',
-    'Mew',
-    'Suicune',
-    'Entei',
-    'Raikou',
-    'Hooh',
-    'Lugia',
-    'Celebi',
-    'Kyogre',
-    'Groudon',
-    'Rayquaza',
-    'Deoxys',
-    'Jirachi',
+    'articuno',
+    'zapdos',
+    'moltres',
+    'mewtwo',
+    'mew',
+    'suicune',
+    'entei',
+    'raikou',
+    'hooh',
+    'lugia',
+    'celebi',
+    'kyogre',
+    'groudon',
+    'rayquaza',
+    'deoxys',
+    'jirachi',
 ]
 
 let selectedWord = ''
 let displayedWord = ''
 let wrongGuesses = 0
 let guessedLetters = []
-const maxMistakes = 6
+const maxMistakes = 7
+let playerHP = 100
 
 function startGame(level){
     selectedWord = getRandomWord(level)
@@ -66,7 +67,7 @@ function updateDifficultyDisplay(level){
 }
 
 function guessLetter(){
-    let inputField = document.getElementById('guessBtn')
+    let inputField = document.getElementById('letterInput')
     let guessedLetter = inputField.value.toLowerCase()
 
     //Check if Valid input between A-Z
@@ -80,7 +81,7 @@ function guessLetter(){
         inputField.value = ''
         return
     } else {
-        guessedLetters.push(guessLetter)
+        guessedLetters.push(guessedLetter)
     }
     
     if(selectedWord.includes(guessedLetter)){
@@ -97,8 +98,13 @@ function wrongGuess(guessedLetter){
     wrongGuesses++
     document.getElementById('wrongLetters').textContent += ` ${guessedLetter}`
     //health decrease
-
-
+    if(playerHP === 10){
+        playerHP -= 10;
+    } else{
+        playerHP -= 15
+    }
+    healthInsurance()
+    
     if (wrongGuesses === maxMistakes){
         endGame(false)}
 }
@@ -122,10 +128,17 @@ function correctGuess(guessedLetter){
     }
 }
 
+function healthInsurance() {
+    let healthbar = document.getElementById("playerHealth");
+          healthbar.setAttribute("style", `width: ${playerHP}%;`);
+  }
+
 function endGame(won){
     if(won === true){
         setTimeout(() => alert('You Win'), 100)
-    } else{}
+    } else{
+        setTimeout(() => alert('You Lose'), 100)
+    }
 
 }
 
