@@ -62,7 +62,7 @@ body{
  border-radius:20px;
 }
 
-.healthText {
+#healthText {
  all: unset;
 }
 

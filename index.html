@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <main class="container text-center">
+        <main class="container-fluid text-center">
             <h1>Hangman</h1>
             <div id="difficultySelection" class=""> <!--d-none-->
                 <h3>Select your Difficulty:</h3>
@@ -46,8 +46,8 @@
             <p id="wrongLetters" class="fw-bold">Wrong Guesses:</p>
 
             <!--Health-->
-            <div class="playerHealthBackdrop mx-2" id="playerHealthBackdrop">
-                <p class="healthText">PLAYER</p>
+            <div class="playerHealthBackdrop" id="playerHealthBackdrop">
+                <p id="healthText"></p>
                 <div class="playerHealthLost">
                     <div class="playerHealth" id="playerHealth"></div>
                 </div>

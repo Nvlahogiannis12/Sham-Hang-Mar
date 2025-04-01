@@ -24,6 +24,22 @@ let guessedLetters = []
 const maxMistakes = 7
 let playerHP = 100
 
+
+window.onload = getName();
+// Generates random number if guest name Chosen
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+//inputs username
+function getName() {
+  let randomNumber = getRandomNumber(0, 9999);
+  let userName = prompt('What is your name:')
+  userName ? document.getElementById('healthText').innerText = `${userName}`:
+  document.getElementById('healthText').innerText =`Guest_` + `${randomNumber}`
+}
+
+
 function startGame(level){
     selectedWord = getRandomWord(level)
 
@@ -74,11 +90,13 @@ function guessLetter(){
     if(!guessedLetter.match(/^[a-z]$/)){
         alert('You have FAILED to put a letter between A-Z')
         inputField.value = ''
+        sound("audios/Crazy Hand Laugh.mp3")
         return
     }
     if(guessedLetters.includes(guessedLetter)){
         alert('You guessed that already')
         inputField.value = ''
+        sound("audios/Crazy Hand Laugh.mp3")
         return
     } else {
         guessedLetters.push(guessedLetter)
@@ -106,7 +124,9 @@ function wrongGuess(guessedLetter){
     healthInsurance()
     
     if (wrongGuesses === maxMistakes){
-        endGame(false)}
+        endGame(false)} else{
+            sound("audios/Home Run Bat.mp3")
+        }
 }
 
 function correctGuess(guessedLetter){
@@ -121,10 +141,12 @@ function correctGuess(guessedLetter){
 
     displayedWord = newDisplayedWord
     document.getElementById('wordDisplay').textContent = displayedWord.split('').join(' ')
-
+    
 
     if(!displayedWord.includes('_')){
         endGame(true)
+    } else {
+        sound("audios/ssb4 sound.mp3")
     }
 }
 
@@ -136,12 +158,19 @@ function healthInsurance() {
 function endGame(won){
     if(won === true){
         setTimeout(() => alert('You Win'), 100)
+        sound("audios/Smash Bros GAME.mp3")
     } else{
         setTimeout(() => alert('You Lose'), 100)
+        sound("audios/Crazy Hand Laugh.mp3")
     }
 
 }
 
 function restartGame(){
     
+}
+
+function sound(url){
+    let audio = new Audio(url)
+    audio.play()
 }
