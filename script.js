@@ -17,6 +17,7 @@ const wordList = [
     'jirachi',
 ]
 
+let playerGuess = false
 let selectedWord = ''
 let displayedWord = ''
 let wrongGuesses = 0
@@ -42,6 +43,7 @@ function getName() {
 
 function startGame(level){
     selectedWord = getRandomWord(level)
+    playerGuess = true
 
 // Update difficulty selection box
 updateDifficultyDisplay(level)
@@ -58,7 +60,21 @@ document.getElementById('wordDisplay').textContent = displayedWord.split('').joi
 
     document.getElementById('gameArea').classList.add('d-block')
     document.getElementById('difficultyBox').classList.add('d-block')
+    playerGuessing()
 }
+
+//add and remove event key listener 
+function playerGuessing(){
+    if (playerGuess === true){
+  window.addEventListener("keydown", (event) => {
+    if(event.key == 'Enter') guessLetter();
+  });
+    } else{
+  window.removeEventListener("keydown", (event) => {
+    if(event.key == 'Enter') guessLetter()
+  });
+    }
+  }
 
 function getRandomWord(level){
     let filteredWords = wordList.filter(word => {
@@ -69,6 +85,8 @@ function getRandomWord(level){
 
     return filteredWords[Math.floor(Math.random()* filteredWords.length)]
 }
+
+//toggle on and off enter key
 
 function updateDifficultyDisplay(level){
     let difficultyBox = document.getElementById('difficultyBox')
@@ -175,6 +193,7 @@ function restartGame(){
     document.getElementById('gameArea').classList.remove('d-block')
     document.getElementById('difficultyBox').classList.remove('d-block')
 
+    playerGuess = false
  selectedWord = ''
  displayedWord = ''
  wrongGuesses = 0
