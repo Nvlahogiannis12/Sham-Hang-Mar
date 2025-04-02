@@ -19,16 +19,33 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <main class="container-fluid text-center">
+        <main class="row container-fluid text-center mt-4">
             <h1>Hangman Smash</h1>
+
+                <!--Health-->
+        <div id="healthCare"class="row justify-content-center d-none">
+            <div class="playerHealthBackdrop" id="playerHealthBackdrop">
+                <p id="healthText"></p>
+                <div class="playerHealthLost">
+                    <div class="playerHealth" id="playerHealth"></div>
+                </div>
+            </div>
+        </div>
             <div id="difficultySelection" class=""> <!--d-none-->
                 <h3>Select your Difficulty:</h3>
                 <button class="btn btn-success difficulty-btn" onclick="startGame('easy')">Easy</button>
                 <button class="btn btn-warning difficulty-btn" onclick="startGame('medium')">Medium</button>
                 <button class="btn btn-danger difficulty-btn" onclick="startGame('hard')">Hard</button>
             </div>
-
-            <div id="difficultyBox" class="mt-3 p-3 fw-bold d-none"> <!--d-none-->
+            <div id="gameover" class="container-fluid text-center d-none my-2">
+                <h1>GAME!</h1>
+                <h2 id="gameDecision"></h2>
+                <p id="gameStreak"></p>
+                <p id="wordReveal"></p>
+                <button id="restartBtn" class="btn btn-danger mb-3" onclick="restartGame()">Restart Game</button>
+            </div>
+            <div class="row justify-content-center">
+            <div id="difficultyBox" class="mt-3 p-3 fw-bold d-none col-6"> <!--d-none-->
                 Placeholder
             </div>
 
@@ -45,15 +62,7 @@
             <!--Wrong Guesses-->
             <p id="wrongLetters" class="fw-bold">Wrong Guesses:</p>
 
-            <!--Health-->
-            <div class="playerHealthBackdrop" id="playerHealthBackdrop">
-                <p id="healthText"></p>
-                <div class="playerHealthLost">
-                    <div class="playerHealth" id="playerHealth"></div>
-                </div>
-            </div>
-
-            <div class="mt-4">
+            <div class="mt-4" id="Restarting">
                 <button id="restartBtn" class="btn btn-danger" onclick="restartGame()">Restart Game</button>
             </div>
  

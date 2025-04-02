@@ -173,6 +173,8 @@ const wordList = [
     'partyball',
 ]
 
+let winStreak = 0
+let loseStreak = 0
 let playerGuess = false
 let selectedWord = ''
 let displayedWord = ''
@@ -180,7 +182,7 @@ let wrongGuesses = 0
 let guessedLetters = []
 const maxMistakes = 7
 let playerHP = 100
-
+let whoWon = ''
 
 window.onload = getName();
 // Generates random number if guest name Chosen
@@ -216,6 +218,7 @@ document.getElementById('wordDisplay').textContent = displayedWord.split('').joi
 
     document.getElementById('gameArea').classList.add('d-block')
     document.getElementById('difficultyBox').classList.add('d-block')
+    document.getElementById('healthCare').classList.remove('d-none')
     playerGuessing()
 }
 
@@ -330,17 +333,28 @@ function healthInsurance() {
 
 function endGame(won){
     if(won === true){
-        setTimeout(() => alert('You Win'), 100)
-        sound("audios/Smash Bros GAME.mp3")
+      //  setTimeout(() => alert('You Win'), 100)
+      sound("audios/Smash Bros GAME.mp3")
+      setTimeout(() => document.getElementById('gameover').classList.remove('d-none') , 100)
+      document.getElementById('gameDecision').innerText = `YOU WON`
+      winStreak++
+      document.getElementById('gameStreak').innerText = `Win: ${winStreak}  Lose: ${loseStreak}`
+      document.getElementById('Restarting').classlist.add('d-none')
     } else{
-        setTimeout(() => alert('You Lose'), 100)
         sound("audios/Crazy Hand Laugh.mp3")
+        setTimeout(() => document.getElementById('gameover').classList.remove('d-none') , 100)
+        document.getElementById('gameDecision').innerText = `YOU FAILED`
+        loseStreak++
+        document.getElementById('gameStreak').innerText = `Win: ${winStreak}  Lose: ${loseStreak}`
+        document.getElementById('wordReveal').innerText = `Word: ${selectedWord}`
+        document.getElementById('Restarting').classlist.add('d-none')
+        
     }
 
 }
 
 function restartGame(){
-    
+    document.getElementById('gameover').classList.add('d-none')
     document.getElementById('difficultySelection').classList.remove('d-none')
 
     document.getElementById('gameArea').classList.add('d-none')
@@ -348,6 +362,8 @@ function restartGame(){
 
     document.getElementById('gameArea').classList.remove('d-block')
     document.getElementById('difficultyBox').classList.remove('d-block')
+
+    document.getElementById('healthCare').classList.add('d-none')
 
  playerGuess = false
  selectedWord = ''

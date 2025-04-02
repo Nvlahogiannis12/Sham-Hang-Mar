@@ -77,3 +77,15 @@ body{
 * {
  position:relative;
 }
+
+#gameover{
+  background-color:white;
+  color:black;
+  z-index: 1000000;
+  border-radius:20px;
+  border: 5px solid black;
+}
+
+#healthCare{
+  color:black;
+}
