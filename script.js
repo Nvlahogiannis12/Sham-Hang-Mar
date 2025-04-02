@@ -96,7 +96,6 @@ function guessLetter(){
     if(guessedLetters.includes(guessedLetter)){
         alert('You guessed that already')
         inputField.value = ''
-        sound("audios/Crazy Hand Laugh.mp3")
         return
     } else {
         guessedLetters.push(guessedLetter)
@@ -168,6 +167,21 @@ function endGame(won){
 
 function restartGame(){
     
+    document.getElementById('difficultySelection').classList.remove('d-none')
+
+    document.getElementById('gameArea').classList.add('d-none')
+    document.getElementById('difficultyBox').classList.add('d-none')
+
+    document.getElementById('gameArea').classList.remove('d-block')
+    document.getElementById('difficultyBox').classList.remove('d-block')
+
+ selectedWord = ''
+ displayedWord = ''
+ wrongGuesses = 0
+ guessedLetters = []
+ playerHP = 100
+ healthInsurance()
+ document.getElementById('wrongLetters').textContent = 'Wrong Guesses:';
 }
 
 function sound(url){
