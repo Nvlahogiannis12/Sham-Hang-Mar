@@ -67,11 +67,11 @@ document.getElementById('wordDisplay').textContent = displayedWord.split('').joi
 function playerGuessing(){
     if (playerGuess === true){
   window.addEventListener("keydown", (event) => {
-    if(event.key == 'Enter') guessLetter();
+    if(event.key == 'Enter' && document.getElementsByTagName('input')[0].value!= '') guessLetter();
   });
     } else{
   window.removeEventListener("keydown", (event) => {
-    if(event.key == 'Enter') guessLetter()
+    if(event.key == 'Enter') guessLetter();
   });
     }
   }
@@ -193,13 +193,14 @@ function restartGame(){
     document.getElementById('gameArea').classList.remove('d-block')
     document.getElementById('difficultyBox').classList.remove('d-block')
 
-    playerGuess = false
+ playerGuess = false
  selectedWord = ''
  displayedWord = ''
  wrongGuesses = 0
  guessedLetters = []
  playerHP = 100
  healthInsurance()
+ playerGuessing()
  document.getElementById('wrongLetters').textContent = 'Wrong Guesses:';
 }
 
