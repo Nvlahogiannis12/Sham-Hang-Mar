@@ -347,7 +347,6 @@ function endGame(won){
         loseStreak++
         document.getElementById('gameStreak').innerText = `Win: ${winStreak}  Lose: ${loseStreak}`
         document.getElementById('wordReveal').innerText = `Word: ${selectedWord}`
-        document.getElementById('Restarting').classlist.add('d-none')
         
     }
 

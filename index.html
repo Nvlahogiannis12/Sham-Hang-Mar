@@ -8,7 +8,7 @@
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-
+<link rel="shortcut icon" href="imgs/SmashBall.svg" type="image/x-icon">
         <!-- Bootstrap CSS v5.2.1 -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -19,7 +19,8 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <main class="row container-fluid text-center mt-4">
+        <main class="row container-fluid text-center mt-4 justify-content-center">
+            <img src="imgs/SmashBall.svg" id="smashBallPhoto">
             <h1>Super Hangman Smash</h1>
 
                 <!--Health-->
@@ -33,9 +34,9 @@
         </div>
             <div id="difficultySelection" class=""> <!--d-none-->
                 <h3>Select your Difficulty:</h3>
-                <button class="btn btn-success difficulty-btn" onclick="startGame('easy')">Easy</button>
-                <button class="btn btn-warning difficulty-btn" onclick="startGame('medium')">Medium</button>
-                <button class="btn btn-danger difficulty-btn" onclick="startGame('hard')">Hard</button>
+                <button class="btn btn-success difficulty-btn Easy" onclick="startGame('easy')">Easy</button>
+                <button class="btn btn-warning difficulty-btn Medium" onclick="startGame('medium')">Medium</button>
+                <button class="btn btn-danger difficulty-btn Hard" onclick="startGame('hard')">Hard</button>
             </div>
             <div id="gameover" class="container-fluid text-center d-none my-2">
                 <h1>GAME!</h1>

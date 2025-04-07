@@ -18,7 +18,8 @@ body{
   );
   background-repeat: repeat;
   background-size: 200px 200px;
-  color:White;
+  color:white;
+  margin-top: 100px;
 }
 .easy{
   background-color: white;
@@ -44,7 +45,7 @@ body{
 
 .playerHealthBackdrop{
   height: 50px;
-  width: 250px;
+  width: 450px;
   background-color: silver;
  display: flex;
  justify-content: center;
@@ -68,7 +69,7 @@ body{
 
 .playerHealthLost {
  height:20px;
- width: 200px;
+ width: 320px;
  background-color: black;
  z-index: -1;
  border-radius:20px;
@@ -88,4 +89,32 @@ body{
 
 #healthCare{
   color:black;
+}
+.Easy{
+ width: 10%;
+ height: auto;
+}
+.Easy:hover{
+  background-color:darkgreen;
+}
+.Medium{
+  width: 10%;
+  height: auto;
+}
+.Medium:hover{
+  background-color:darkgoldenrod;
+}
+.Hard{
+  width: 10%;
+  height: auto;
+}
+.Hard:hover{
+  background-color:maroon;
+}
+#gameover{
+  text-align: center;
+}
+#smashBallPhoto{
+  height:100px;
+  width:auto;
 }
