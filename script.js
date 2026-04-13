@@ -8,7 +8,7 @@ const wordList = [
     'kirby',
     'fox',
     'pikachu',
-    'lugi',
+    'luigi',
     'ness',
     'captainfalcon',
     'jigglypuff',
